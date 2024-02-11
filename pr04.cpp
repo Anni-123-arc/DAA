@@ -6,7 +6,7 @@ using namespace  std;
 void countdup(int a[],int n){
      // int count=0;
       int k=0;
-       for (int i=k ; i <n ; ++i) {
+       for (int i=k ; i <n ; ++i) { // vnbl
           int j=i;
           int count=1;
 

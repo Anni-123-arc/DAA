@@ -1,42 +1,34 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int main() {
-     vector<int> numbers;
-     vector<int> evenNumbers;
-     vector<int> oddNumbers;
-    
-    // Input the numbers
-    cout << "Enter numbers (enter 0 to finish):\n";
-    int num;
-    while (true) {
-         cin >> num;
-        if (num == 0)
-            break;
-        numbers.push_back(num);
-    }
-    
-    // Separate even and odd numbers
-    for (int i = 0; i < numbers.size(); ++i) {
-        if (numbers[i] % 2 == 0)
-            evenNumbers.push_back(numbers[i]);
+
+void separateOddEven(const vector<int>& nums, vector<int>& odd, vector<int>& even) {
+    for (int num : nums) {
+        if (num % 2 == 0)
+            even.push_back(num);
         else
-            oddNumbers.push_back(numbers[i]);
+            odd.push_back(num);
     }
-    
-    // Display even numbers
-     cout << "Even numbers: ";
-    for (int i = 0; i < evenNumbers.size(); ++i) {
-         cout << evenNumbers[i] << " ";
+}
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    vector<int> oddNumbers;
+    vector<int> evenNumbers;
+
+    separateOddEven(numbers, oddNumbers, evenNumbers);
+
+    cout << "Odd Numbers: ";
+    for (int num : oddNumbers) {
+        cout << num << " ";
     }
-    cout <<  endl;
-    
-    // Display odd numbers
-     cout << "Odd numbers: ";
-    for (int i = 0; i < oddNumbers.size(); ++i) {
-        cout << oddNumbers[i] << " ";
+    cout << endl;
+
+    cout << "Even Numbers: ";
+    for (int num : evenNumbers) {
+        cout << num << " ";
     }
-     cout << std::endl;
-    
+    cout << endl;
+
     return 0;
 }
